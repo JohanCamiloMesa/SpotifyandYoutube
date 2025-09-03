@@ -1,6 +1,7 @@
 from Extract.SpotifyandYoutubeExtract import SpotifyandYoutubeExtract
 from Clean.SpotifyandYoutubeClean import SpotifyandYoutubeClean
 from Config.config import Config
+from Load.loader import Loader
 
 
 # Extracción de datos
@@ -35,3 +36,11 @@ print("\n--- NULOS Y CEROS EN DATASET LIMPIO ---\n")
 resultados_nulos_ceros_limpio = SpotifyandYoutubeClean(df_limpio).verificar_nulos_ceros()
 print(resultados_nulos_ceros_limpio)
 
+if df is not None:
+
+    # Carga a SQLite
+    print("\n--- CARGANDO DATOS A SQLITE ---\n")
+    loader = Loader(df_limpio)
+    loader.to_sqlite()
+else:
+    print('No se pudo extraer el DataFrame.')

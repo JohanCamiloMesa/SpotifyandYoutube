@@ -6,6 +6,13 @@ class SpotifyandYoutubeClean:
     def __init__(self, df):
         self.df = df
 
+    def limpiar_texto(self, texto):
+        """Limpia texto eliminando espacios y reemplazando valores problemáticos"""
+        texto = str(texto).strip()
+        if texto == "" or texto.lower() == "nan" or texto.lower() == "none":
+            return "Unknown"
+        return texto
+
     def verificar_nulos_ceros(self):
         nulos = self.df.isnull().sum()
         ceros = (self.df == 0).sum()
@@ -105,27 +112,47 @@ class SpotifyandYoutubeClean:
         # Reemplazar valores nulos o vacíos en 'Url_spotify' con el mensaje "No disponible / No existe"
 
         if 'Url_spotify' in self.df.columns:
-            self.df['Url_spotify'] = self.df['Url_spotify'].fillna("Unknown").replace("", "Unknown")
+            self.df['Url_spotify'] = self.df['Url_spotify'].fillna("Unknown")
+            self.df['Url_spotify'] = self.df['Url_spotify'].astype(str)
+            # Método más eficiente: usar operaciones vectorizadas
+            self.df['Url_spotify'] = self.df['Url_spotify'].str.strip()
+            self.df['Url_spotify'] = self.df['Url_spotify'].replace(['', 'nan', 'NaN', 'none', 'None'], 'Unknown')
 
         # Reemplazar valores nulos o vacíos en 'Url_youtube' con el mensaje "No disponible / No existe"
 
         if 'Url_youtube' in self.df.columns:
-            self.df['Url_youtube'] = self.df['Url_youtube'].fillna("Unknown").replace("", "Unknown")
+            self.df['Url_youtube'] = self.df['Url_youtube'].fillna("Unknown")
+            self.df['Url_youtube'] = self.df['Url_youtube'].astype(str)
+            # Método más eficiente: usar operaciones vectorizadas
+            self.df['Url_youtube'] = self.df['Url_youtube'].str.strip()
+            self.df['Url_youtube'] = self.df['Url_youtube'].replace(['', 'nan', 'NaN', 'none', 'None'], 'Unknown')
 
         # Reemplazar valores nulos o vacíos en 'Title' con el mensaje "No disponible / No existe"
 
         if 'Title' in self.df.columns:
-            self.df['Title'] = self.df['Title'].fillna("Unknown").replace("", "Unknown")
+            self.df['Title'] = self.df['Title'].fillna("Unknown")
+            self.df['Title'] = self.df['Title'].astype(str)
+            # Método más eficiente: usar operaciones vectorizadas
+            self.df['Title'] = self.df['Title'].str.strip()
+            self.df['Title'] = self.df['Title'].replace(['', 'nan', 'NaN', 'none', 'None'], 'Unknown')
 
         # Reemplazar valores nulos o vacíos en 'Channel' con el mensaje "No disponible / No existe"
 
         if 'Channel' in self.df.columns:
-            self.df['Channel'] = self.df['Channel'].fillna("Unknown").replace("", "Unknown")
+            self.df['Channel'] = self.df['Channel'].fillna("Unknown")
+            self.df['Channel'] = self.df['Channel'].astype(str)
+            # Método más eficiente: usar operaciones vectorizadas
+            self.df['Channel'] = self.df['Channel'].str.strip()
+            self.df['Channel'] = self.df['Channel'].replace(['', 'nan', 'NaN', 'none', 'None'], 'Unknown')
 
         # Reemplazar valores nulos o vacíos en 'Description' con el mensaje "No disponible / No existe"
 
         if 'Description' in self.df.columns:
-            self.df['Description'] = self.df['Description'].fillna("Unknown").replace("", "Unknown")
+            self.df['Description'] = self.df['Description'].fillna("Unknown")
+            self.df['Description'] = self.df['Description'].astype(str)
+            # Método más eficiente: usar operaciones vectorizadas
+            self.df['Description'] = self.df['Description'].str.strip()
+            self.df['Description'] = self.df['Description'].replace(['', 'nan', 'NaN', 'none', 'None'], 'Unknown')
 
         # Calcular la moda para 'License' y reemplazar
 

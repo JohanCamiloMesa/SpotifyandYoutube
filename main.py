@@ -1,5 +1,5 @@
 from Extract.SpotifyandYoutubeExtract import SpotifyandYoutubeExtract
-from Clean.SpotifyandYoutubeClean import SpotifyandYoutubeClean
+from Transform.SpotifyandYoutubeClean import SpotifyandYoutubeClean
 from Config.config import Config
 from Load.loader import Loader
 

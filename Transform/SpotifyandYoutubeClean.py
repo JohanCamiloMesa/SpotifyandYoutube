@@ -105,27 +105,27 @@ class SpotifyandYoutubeClean:
         # Reemplazar valores nulos o vacíos en 'Url_spotify' con el mensaje "No disponible / No existe"
 
         if 'Url_spotify' in self.df.columns:
-            self.df['Url_spotify'] = self.df['Url_spotify'].fillna("No disponible / No existe").replace("", "No disponible / No existe")
+            self.df['Url_spotify'] = self.df['Url_spotify'].fillna("Unknown").replace("", "Unknown")
 
         # Reemplazar valores nulos o vacíos en 'Url_youtube' con el mensaje "No disponible / No existe"
 
         if 'Url_youtube' in self.df.columns:
-            self.df['Url_youtube'] = self.df['Url_youtube'].fillna("No disponible / No existe").replace("", "No disponible / No existe")
+            self.df['Url_youtube'] = self.df['Url_youtube'].fillna("Unknown").replace("", "Unknown")
 
         # Reemplazar valores nulos o vacíos en 'Title' con el mensaje "No disponible / No existe"
 
         if 'Title' in self.df.columns:
-            self.df['Title'] = self.df['Title'].fillna("No disponible / No existe").replace("", "No disponible / No existe")
+            self.df['Title'] = self.df['Title'].fillna("Unknown").replace("", "Unknown")
 
         # Reemplazar valores nulos o vacíos en 'Channel' con el mensaje "No disponible / No existe"
 
         if 'Channel' in self.df.columns:
-            self.df['Channel'] = self.df['Channel'].fillna("No disponible / No existe").replace("", "No disponible / No existe")
+            self.df['Channel'] = self.df['Channel'].fillna("Unknown").replace("", "Unknown")
 
         # Reemplazar valores nulos o vacíos en 'Description' con el mensaje "No disponible / No existe"
 
         if 'Description' in self.df.columns:
-            self.df['Description'] = self.df['Description'].fillna("No disponible / No existe").replace("", "No disponible / No existe")
+            self.df['Description'] = self.df['Description'].fillna("Unknown").replace("", "Unknown")
 
         # Calcular la moda para 'License' y reemplazar
 
